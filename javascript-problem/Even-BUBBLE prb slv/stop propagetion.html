@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop propagation </title>
+</head>
+<body>
+    <div id="container">
+    <h1>My list </h1>
+    <ul id="my-list">
+        <li class="item" id="first"><p id="pragrap">ipsum dolor sit.</p></li>
+        <li class="item"><p> Libero, nostrum? Expedita, eveniet.</p></li>
+        <li class="item">Libero soluta consequatur adipisci.</li>
+        <li class="item">Modi omnis cupiditate perspiciatis.</li>
+        <li class="item">Perspiciatis porro alias voluptates!</li>
+    </ul>
+    <button id="addItem">add new item</button>
+</div>
+    <script>
+
+/**
+        var item = document.getElementsByClassName('item');
+        for (let i = 0; i < item.length; i++) {
+            const items = item[i];
+            //console.log(items);
+            items.addEventListener('click',function(event){
+                // console.log(this);
+                // console.log(this.innerText);
+                // console.log('for even.target')
+                // console.log(event.target);
+                // console.log(event.target.innerText);
+                // event.stopPropagation();
+                // console.log(event.target.parentNode);
+                event.target.parentNode.removeChild(event.target);
+           
+            })       
+        }
+*/
+        document.getElementById('addItem').addEventListener('click',function(event){
+            var parent = document.getElementById('my-list')
+            var newItem = document.createElement('li');
+            newItem.innerText = "Hi I am Siam ";
+            parent.appendChild(newItem);
+        })
+
+
+        document.getElementById('my-list').addEventListener('click',function(even){
+            console.log(this,even.target);
+            even.target.parentNode.removeChild(even.target);
+            
+        })
+
+
+
+
+
+
+        //  document.getElementById('first').addEventListener('click',function(even){
+        //     console.log('fist item click');
+        //    // even.stopPropagation();
+        // //    even.stopPropagation();
+        // })
+        // document.getElementById('my-list').addEventListener('click',function(even){
+        //     console.log('ul click');
+        //     even.stopPropagation();
+        // })
+        // document.getElementById('pragrap').addEventListener('click',function(even){
+        //     console.log('paragrap click');
+            
+        // })
+        
+    </script>
+</body>
+</html>
